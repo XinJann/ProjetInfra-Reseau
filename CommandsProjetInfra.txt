@@ -1,0 +1,110 @@
+Rt:
+
+conf t
+
+interface fastethernet0/0
+no shutdown
+exit
+interface fastethernet0/0.1
+encapsulation dot1q 10
+ip address 192.168.10.254 255.255.255.0
+no shutdown
+exit
+interface fastethernet0/0.2
+encapsulation dot1q 20
+ip address 192.168.20.254 255.255.255.0
+no shutdown
+exit
+
+access-list 1 permit 192.168.0.0 0.0.255.255
+ip nat inside source static 192.168.10.254 20.0.0.1
+
+Distrib_1:
+
+conf t
+
+interface eth3/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+no shutdown
+exit
+interface eth3/2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+no shutdown
+exit
+interface eth3/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+no shutdown
+exit
+
+Access_1:
+
+vlan 10
+name salarier
+exit
+vlan 20
+name cadre
+exit
+interface eth0/0
+switchport access vlan 10
+no shutdown
+interface eth0/1
+switchport access vlan 10
+no shutdown
+interface eth0/2
+switchport access vlan 20
+no shutdown
+exit
+interface eth3/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+no shutdown
+exit
+
+Access_2:
+
+vlan 10
+name salarier
+exit
+vlan 20
+name cadre
+exit
+interface eth0/0
+switchport access vlan 20
+no shutdown
+interface eth0/1
+switchport access vlan 10
+no shutdown
+interface eth0/2
+switchport access vlan 20
+no shutdown
+exit
+interface eth3/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+no shutdown
+exit
+
+exit
+show vlan
+
+
+
+########### LACP #############
+
+conf t
+interface range Ethernet3/...-...
+sw trunk encapsulation dot1q
+sw mode trunk
+sw trunk allowed vlan ...,...
+channel-group X mode active
+channel-protocol lacp
+no shutdown
+exit
