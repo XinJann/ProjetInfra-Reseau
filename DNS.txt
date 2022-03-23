@@ -1,0 +1,22 @@
+Utilisation VM debian (ou CentOS)
+avant : pour windows
+IMPORTANT --- entrer la command suivant dans le cmd.exe de windows
+	sc config npf start= auto
+
+configurer l'interface réseau de la VM pour coller à l'infra GNS
+(ip static , dns)
+
+puis pour la conf du service DNS
+https://www.thegeekstuff.com/2014/01/install-dns-server/
+
+1) modif le "forwarders" de /etc/bind/named.conf.options en y mettant les IP de serv DNS
+
+2) ajouter "recursive yes;allow-recursion { 192.168.0.0/16;};   // cette ligne liste les IP  pouvant effecturer des "requêtes récursives" (qui fais que le service DNS , s'il n'a pas de réponse à donner va aller chercher un "vrai" serv DNS pour obtenir une réponse et la fournir)
+
+3) sudo cp /etc/bind/db.local /etc/bind/db.projetinfra.net
+ et modif le fichier db.projetinfra.net sans oublié le "$ORIGIN projectinfra.net."
+
+4) sudo cp /etc/bind/db.127 /etc/bind/db.10
+
+
+5) sudo systeme bind9 restart

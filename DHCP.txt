@@ -1,0 +1,38 @@
+#### DHCP ####
+
+ -- modifier fichier configuration :
+/etc/dhcp/dhcpd.conf
+
+et fichier .service :
+/usr/lib/systemd/system/dhcpd.service
+
+ -- pour ajouter le nom de l'interface réseau utilisé à la fin de la command "ExecStart"
+     (dans le cas présent l'interface réseau est ens33)
+
+
+MARCHE TOUJOURS PAS :(
+
+malgrès dhcpd -d (qui dis que ens33 n'a pas de network) , dhcpd -t (qui test le .conf)
+
+j'ai l'impression que il faut que l'interface réseau utilisé sois compris dans le "network" paramétré dans le .conf. 
+Si c'est le cas il faut yum install vlan pour crée des interfaces réseau virtuel qui collerai avec la config de dhcpd.conf
+
+
+
+###### Configuration dans le router ###### // semble bien marcher
+
+conf t
+ip dhcp pool 10
+network 192.168.10.0 255.255.255.0
+dns-server 8.8.8.8
+default-router 192.168.10.254
+exit
+
+ip dhcp pool 20
+network 192.168.20.0 255.255.255.0
+dns-server 8.8.8.8
+default-router 192.168.20.254
+exit
+
+
+## ip dhcp excluded(address 192.168.10.250 192.168.10.255
