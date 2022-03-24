@@ -108,3 +108,12 @@ channel-group X mode active
 channel-protocol lacp
 no shutdown
 exit
+
+
+
+vlan 30 :
+192.168.30.0/28
+1. DNS
+2. Web
+14. gateway
+15. brd
