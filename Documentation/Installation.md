@@ -15,9 +15,9 @@
 
 ![Schema](/Documentation/Images/SchemaInfra.PNG)
 
-2) Configurer les différents Switch en recopiant [les commandes](/Documentation/CommandesSwitchs.md) pour chaque Switch
+2) Configurer les différents Switch en recopiant [les commandes](/Documentation/CommandesSwitchs.md) pour chacun d'entre eux
 
-3) Faire glisser l'élément "NAT" de GNS3 puis le brancher au router sur l'interface f1/0
+3) Faire glisser l'élément "NAT" (forme de nuage) de GNS3 puis le brancher au router sur l'interface f1/0
 
 4) Configurer le router en recopiant [les commandes](/Documentation/CommandesRouter.md)
 
@@ -43,16 +43,19 @@
 **FIN CONFIGURATION VM DEBIAN**
 
 12) Importer la VM debian dans GNS3, documentation [ici](https://docs.gns3.com/docs/emulators/adding-vmware-vms-to-gns3-topologies/)
-    - Une fois importé, clique droit -> Configure Template -> Network -> cocher la case en bas "Allow GNS3 to override non custom VMware adapter"
+    - Une fois importée, clique droit -> Configure Template -> Network -> cocher la case en bas "Allow GNS3 to override non custom VMware adapter"
 
-    - Faire glisser le template de la VM dans l'infra et la brancher eu switch Access_5 sur l'interface e0/0
+    - Faire glisser le template de la VM dans l'infra et la brancher au Switch Access_5 sur l'interface e0/0
 
     - S'il y a un message d'erreur lors de l'activation de la VM via GNS3
       - redémarrer la machine Host
       - S'il y a toujours le même problème, taper **sc config npf start= auto** dans le Terminal de la machine Host, puis redémarrer
 
-13) Faire glisser un VPCS dans l'infra GNS3, et la brancher au Switch Access_5 sur l'interface 0/1, allumez la machine pour accéder à la Console et taper les commandes suivantes :  
+13) Faire glisser un VPCS dans l'infra GNS3, et la brancher au Switch Access_5 sur l'interface 0/1, allumer la machine pour accéder à la Console et taper les commandes suivantes :  
     - ip 192.168.30.2 255.255.255.0 192.168.30.14
     - ip dns 192.168.30.1
     - set pcname web
     - wr
+
+[Suivant](/Documentation/Utilisation.md)  
+[Retour](/README.md)

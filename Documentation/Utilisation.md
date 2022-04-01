@@ -8,9 +8,13 @@
 2. Une fois branché, allumez le VPCS et accédez à sa Console, taper la commande :  
    - ip dhcp  
 
-### Il est maintenant possible de ping n'importe quel appareil du LAN, de ping des IP publics et surtout de pouvoir ping le futur server Web "web.projetinfra.net"  
+    Pour vérifier les données fournis par le DNS, taper **sh ip**
+
+### Il est maintenant possible, avec notre VPCS, de ping n'importe quel appareil du LAN, de ping des IP publics et surtout de pouvoir ping le futur server Web "web.projetinfra.net"  
 
 <br>
 
 ### Remarque : Il est possible de voir le fonctionnement du protocol NAT.
- - Ouvrez la console du router et taper la commande **debug ip nat**  
+ - Ouvrez la console du router et taper la commande **debug ip nat** puis effectuer des pings vers des IP public avec un VPCS de l'infra GNS3
+
+[Retour](/Documentation/Installation.md)
