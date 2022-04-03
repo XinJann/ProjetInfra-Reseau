@@ -1,6 +1,7 @@
 # Distrib_1
 
 conf t  
+hostname Distrib_1  
 vlan 10  
 name dev  
 exit  
@@ -40,6 +41,8 @@ wr
 
 # Access_1
 
+conf t  
+hostname Access_1  
 vlan 10  
 name dev  
 exit  
@@ -83,6 +86,7 @@ wr
 # Access_2
 
 conf t  
+hostname Access_2  
 vlan 10  
 name dev  
 exit  
@@ -131,6 +135,7 @@ wr
 # Access_3
 
 conf t  
+hostname Access_3  
 vlan 10  
 name dev  
 exit  
@@ -171,6 +176,7 @@ wr
 # Access_4
 
 conf t  
+hostname Access_4  
 vlan 10  
 name dev  
 exit  
@@ -211,6 +217,7 @@ wr
 # Access_5
 
 conf t  
+hostname Access_5  
 vlan 30  
 name server  
 exit  

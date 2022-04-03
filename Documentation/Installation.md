@@ -12,6 +12,7 @@
 ### Installation
 
 1) Placer les machines et les brancher comme sur l'image
+   - Remarque : Pour changer les titres visible des appareils, clique droit sur l'appareil -> General settings -> Changer la valeur de "Name:" 
 
 ![Schema](/Documentation/Images/SchemaInfra.PNG)
 
@@ -49,7 +50,7 @@
 
     - S'il y a un message d'erreur lors de l'activation de la VM via GNS3
       - redémarrer la machine Host
-      - S'il y a toujours le même problème, taper **sc config npf start= auto** dans le Terminal de la machine Host, puis redémarrer
+      - S'il y a toujours le même problème, taper **sc config npf start= auto** dans le Terminal (Ici Powershell) de la machine Host, puis redémarrer
 
 13) Faire glisser un VPCS dans l'infra GNS3, et la brancher au Switch Access_5 sur l'interface 0/1, allumer la machine pour accéder à la Console et taper les commandes suivantes :  
     - ip 192.168.30.2 255.255.255.0 192.168.30.14

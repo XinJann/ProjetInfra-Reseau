@@ -1,6 +1,7 @@
 # Router
 
 conf t  
+hostname Rt  
 interface fastethernet0/0  
 no shutdown  
 exit  

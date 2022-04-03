@@ -10,11 +10,12 @@
 
     Pour vérifier les données fournis par le DNS, taper **sh ip**
 
-### Il est maintenant possible, avec notre VPCS, de ping n'importe quel appareil du LAN, de ping des IP publics et surtout de pouvoir ping le futur server Web "web.projetinfra.net"  
+### Il est maintenant possible, avec notre VPCS, de ping n'importe quel appareil du LAN, de ping des IP publics, nom de domaine public existant et surtout de pouvoir ping le futur server Web "web.projetinfra.net"  
 
 <br>
 
 ### Remarque : Il est possible de voir le fonctionnement du protocol NAT.
  - Ouvrez la console du router et taper la commande **debug ip nat** puis effectuer des pings vers des IP public avec un VPCS de l'infra GNS3
 
+[Suivant](/Documentation/Monitoring.md)  
 [Retour](/Documentation/Installation.md)
